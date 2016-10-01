@@ -1,0 +1,38 @@
+---
+apt_keys:
+  -
+    keyserver: "hkp://p80.pool.sks-keyservers.net:80"
+    id: "58118E89F3A912897C070ADBF76221572C52609D"
+
+apt_repositories:
+  -
+    repo: "deb https://apt.dockerproject.org/repo ubuntu-xenial main"
+    filename: "docker.list"
+
+deb_packages:
+  - "build-essential"
+  - "bzip2"
+  - "cmake"
+  - "curl"
+  - "doxygen"
+  - "docker-engine"
+  - "emacs24"
+  - "emacs24-el"
+  - "fakeroot"
+  - "gcc"
+  - "g++"
+  - "gdb"
+  - "git"
+  - "gnupg2"
+  - "graphviz"
+  - "gzip"
+  - "lldb"
+  - "llvm"
+  - "net-tools"
+  - "openssh-server"
+  - "sudo"
+  - "vim"
+  - "wget"
+  - "xz-utils"
+  - "zip"
+  - "zsh"

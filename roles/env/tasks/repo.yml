@@ -1,0 +1,25 @@
+---
+- name: "Remove old files"
+  file:
+    path: "{{ item.dest }}"
+    state: "absent"
+  with_items:
+    - "{{ git_repositories }}"
+    - "{{ symlinks }}"
+
+- name: "Clone git repositories"
+  git:
+    repo: "{{ item.repo }}"
+    dest: "{{ item.dest }}"
+    accept_hostkey: "yes"
+  with_items:
+    - "{{ git_repositories }}"
+
+- name: "Create symlinks"
+  file:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    force: "yes"
+    state: "link"
+  with_items:
+    - "{{ symlinks }}"

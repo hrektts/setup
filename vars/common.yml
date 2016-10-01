@@ -1,0 +1,25 @@
+---
+git_repositories:
+  -
+    repo: "https://github.com/hrektts/dotfiles.git"
+    dest: "{{ ansible_env.HOME }}/dotfiles"
+  -
+    repo: "https://github.com/seebi/dircolors-solarized.git"
+    dest: "{{ ansible_env.HOME }}/dircolors-solarized"
+
+symlinks:
+  -
+    src: "{{ ansible_env.HOME }}/dircolors-solarized/dircolors.ansi-universal"
+    dest: "{{ ansible_env.HOME }}/.dircolors"
+  -
+    src: "{{ ansible_env.HOME }}/dotfiles/.screenrc"
+    dest: "{{ ansible_env.HOME }}/.screenrc"
+  -
+    src: "{{ ansible_env.HOME }}/dotfiles/.zshenv"
+    dest: "{{ ansible_env.HOME }}/.zshenv"
+  -
+    src: "{{ ansible_env.HOME }}/dotfiles/.zsh"
+    dest: "{{ ansible_env.HOME }}/.zsh"
+  -
+    src: "{{ ansible_env.HOME }}/dotfiles/.emacs.d"
+    dest: "{{ ansible_env.HOME }}/.emacs.d"

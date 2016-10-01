@@ -1,0 +1,72 @@
+---
+homebrew_repositories:
+  - "homebrew/binary"
+  - "homebrew/dupes"
+
+homebrew_packages:
+  - "xz"
+  - "binutils"
+  - "coreutils"
+  - "diffutils"
+  - "findutils"
+  - "gettext"
+  - "gnu-indent"
+  - "gnu-sed"
+  - "gnu-tar"
+  - "gnu-which"
+  - "grep"
+  - { name: "lesspipe", install_options: "with-syntax-highlighting" }
+  - "pkg-config"
+  - "mpfr"
+  - "readline"
+  - "gawk"
+  - "readline"
+  - { name: "gnupg2", install_options: "with-readline" }
+  - "screen"
+  - "wget"
+  - "git"
+  - { name: "zsh", install_options: "without-etcdir" }
+  - "zsh-completions"
+  - "zsh-syntax-highlighting"
+  - { name: "boost", install_options: "c++11, with-icu4c, with-mpi, without-single" }
+  - "source-highlight"
+  - { name: "imagemagick", install_options: "with-fftw, with-fontconfig, with-ghostscript, with-hdri, with-liblqr, with-librsvg, with-wmf, with-little-cms, with-little-cms2, with-openexr, with-openjpeg, with-pango, with-webp" }
+  - { name: "emacs", install_options: "with-cocoa, with-ctags, with-gnutls, with-imagemagick" }
+  - { name: "fftw", install_options: "with-fortran, with-mpi" }
+  - { name: "aspell", install_options: "with-lang-en" }
+  - "jags"
+  - "nkf"
+  - "wakeonlan"
+  - "jq"
+  - "cmake"
+  - "autoconf"
+  - "automake"
+  - "lv"
+  - "ctags"
+  - "tree"
+  - "pyenv"
+  - "pyenv-virtualenv"
+  - "docker"
+  - "docker-compose"
+  - "docker-machine"
+
+homebrew_cask_repositories:
+  - "caskroom/versions"
+
+homebrew_cask_packages:
+  - "iterm2"
+  - "google-chrome"
+  - "google-japanese-ime"
+  - "dropbox"
+  - "skype"
+  - "slack"
+  - "appcleaner"
+  - "vlc"
+  - "skitch"
+  - "adobe-creative-cloud"
+  - "vagrant"
+  - "virtualbox"
+  - "the-unarchiver"
+  - "mactex"
+  - "xquartz"
+  - "spotify"

@@ -1,0 +1,16 @@
+---
+- name: "Retrieve Zsh path"
+  command: "which zsh"
+  register: "path_to_zsh"
+
+- name: "Retrive current user id"
+  command: "whoami"
+  register: "user_id"
+
+- name: "Change login shell to Zsh"
+  become: "yes"
+  become_method: "sudo"
+  user:
+    name: "{{ user_id.stdout }}"
+    shell: "{{ path_to_zsh.stdout }}"
+    state: "present"
