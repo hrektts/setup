@@ -27,11 +27,25 @@ main() {
     fi
     cleanup_pkg
 
-    HOMEBREW_CASK_OPTS="--appdir=/Applications" ansible-pull \
-                      -U https://github.com/hrektts/setup.git \
-                      -i hosts \
-                      --ask-become-pass -vvv \
-                      localhost.yml
+    local _branch=${@:-"master"}
+
+    if ${CI}; then
+        HOMEBREW_CASK_OPTS="--appdir=/Applications" ansible-pull \
+                          -U https://github.com/hrektts/setup.git \
+                          -C $_branch \
+                          -i hosts \
+                          --vault-password-file vault.sh \
+                          -vvv \
+                          localhost.yml
+    else
+        HOMEBREW_CASK_OPTS="--appdir=/Applications" ansible-pull \
+                          -U https://github.com/hrektts/setup.git \
+                          -C $_branch \
+                          -i hosts \
+                          --ask-become-pass \
+                          -vvv \
+                          localhost.yml
+    fi
 
     say "Finished. Hosts are ready!"
 }
@@ -102,6 +116,7 @@ provision_pkg() {
 
     case "$(get_os)" in
         darwin )
+            my_brew missing "$@"
             my_brew install "$@"
             ;;
         debian | ubuntu )
