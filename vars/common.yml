@@ -1,10 +1,10 @@
 ---
 git_repositories:
   -
-    repo: "https://github.com/hrektts/dotfiles.git"
+    repo: https://github.com/hrektts/dotfiles.git
     dest: "{{ ansible_env.HOME }}/dotfiles"
   -
-    repo: "https://github.com/seebi/dircolors-solarized.git"
+    repo: https://github.com/seebi/dircolors-solarized.git
     dest: "{{ ansible_env.HOME }}/dircolors-solarized"
 
 symlinks:

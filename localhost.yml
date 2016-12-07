@@ -1,16 +1,20 @@
 ---
-- hosts: "localhost"
-  connection: "local"
-
+- hosts: localhost
+  connection: local
   roles:
-    - { role: "apt", when: "ansible_os_family == 'Debian'" }
-
-    - { role: "homebrew-cask", when: "ansible_os_family == 'Darwin'" }
-    - { role: "homebrew", when: "ansible_os_family == 'Darwin'" }
-    - { role: "mac", when: "ansible_os_family == 'Darwin'" }
-
-    - "env"
-
+    -
+      role: apt
+      when: ansible_os_family == 'Debian'
+    -
+      role: homebrew-cask
+      when: ansible_os_family == 'Darwin'
+    -
+      role: homebrew
+      when: ansible_os_family == 'Darwin'
+    -
+      role: mac
+      when: ansible_os_family == 'Darwin'
+    - env
   vars_files:
-    - "vars/common.yml"
+    - vars/common.yml
     - "vars/{{ ansible_os_family }}.yml"

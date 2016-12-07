@@ -1,24 +1,24 @@
 ---
-- name: "Hide the Dock"
+- name: Hide the Dock
   osx_defaults:
-    domain: "com.apple.dock"
-    key: "autohide"
-    type: "bool"
-    value: "true"
-  notify: "Restart Dock"
+    domain: com.apple.dock
+    key: autohide
+    type: bool
+    value: true
+  notify: Restart Dock
 
-- name: "Locate the Dock on the left side of the screen"
+- name: Locate the Dock on the left side of the screen
   osx_defaults:
-    domain: "com.apple.dock"
-    key: "orientation"
-    type: "string"
-    value: "left"
-  notify: "Restart Dock"
+    domain: com.apple.dock
+    key: orientation
+    type: string
+    value: left
+  notify: Restart Dock
 
-- name: "Show only active apps in the Dock"
+- name: Show only active apps in the Dock
   osx_defaults:
-    domain: "com.apple.dock"
-    key: "static-only"
-    type: "bool"
-    value: "true"
-  notify: "Restart Dock"
+    domain: com.apple.dock
+    key: static-only
+    type: bool
+    value: true
+  notify: Restart Dock

@@ -1,21 +1,21 @@
 ---
-- name: "Add Homebrew Cask repositories"
+- name: Add Homebrew Cask repositories
   homebrew_tap:
     tap: "{{ item }}"
-    state: "present"
-  with_items: "{{ homebrew_cask_repositories }}"
+    state: present
+  with_items: "{{ homebrew_cask_repositories | default('') }}"
 
-- name: "Update homebrew"
-  command: "brew cask update"
+- name: Update homebrew
+  command: brew cask update
 
-- name: "Install/Upgrade Homebrew Cask fomula"
+- name: Install/Upgrade Homebrew Cask fomula
   homebrew_cask:
     name: "{{ item.name | default(item) }}"
     state: "{{ item.state | default('present') }}"
-  with_items: "{{ homebrew_cask_packages }}"
+  with_items: "{{ homebrew_cask_packages | default('') }}"
 
-- name: "Cleanup packages"
-  command: "brew cask cleanup"
+- name: Cleanup packages
+  command: brew cask cleanup
 
-- name: "Check soundness"
-  command: "brew cask doctor"
+- name: Check soundness
+  command: brew cask doctor

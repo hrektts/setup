@@ -1,40 +1,40 @@
 ---
-- name: "Show file extensions"
+- name: Show file extensions
   osx_defaults:
-    domain: "NSGlobalDomain"
-    key: "AppleShowAllExtensions"
-    type: "bool"
-    value: "true"
-  notify: "Restart Finder"
+    domain: NSGlobalDomain
+    key: AppleShowAllExtensions
+    type: bool
+    value: true
+  notify: Restart Finder
 
-- name: "Show hidden files"
+- name: Show hidden files
   osx_defaults:
-    domain: "com.apple.finder"
-    key: "AppleShowAllFiles"
-    type: "bool"
-    value: "true"
-  notify: "Restart Finder"
+    domain: com.apple.finder
+    key: AppleShowAllFiles
+    type: bool
+    value: true
+  notify: Restart Finder
 
-- name: "Enable the Finder Path Bar"
+- name: Enable the Finder Path Bar
   osx_defaults:
-    domain: "com.apple.finder"
-    key: "ShowPathBar"
-    type: "bool"
-    value: "true"
-  notify: "Restart Finder"
+    domain: com.apple.finder
+    key: ShowPathBar
+    type: bool
+    value: true
+  notify: Restart Finder
 
-- name: "Show the Path in the Finder Title Bar"
+- name: Show the Path in the Finder Title Bar
   osx_defaults:
-    domain: "com.apple.finder"
-    key: "_FXShowPosixPathInTitle"
-    type: "bool"
-    value: "true"
-  notify: "Restart Finder"
+    domain: com.apple.finder
+    key: _FXShowPosixPathInTitle
+    type: bool
+    value: true
+  notify: Restart Finder
 
-- name: "Disable the creation of .DS_store files"
+- name: Disable the creation of .DS_store files
   osx_defaults:
-    domain: "com.apple.desktopservices"
-    key: "DSDontWriteNetworkStores"
-    type: "bool"
-    value: "true"
-  notify: "Restart Finder"
+    domain: com.apple.desktopservices
+    key: DSDontWriteNetworkStores
+    type: bool
+    value: true
+  notify: Restart Finder

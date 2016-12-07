@@ -1,56 +1,56 @@
 ---
-- name: "Update APT package index"
-  become: "yes"
-  apt: "update_cache=yes"
+- name: Update APT package index
+  become: yes
+  apt: update_cache=yes
 
-- name: "Install prerequisites"
-  become: "yes"
+- name: Install prerequisites
+  become: yes
   apt:
     name: "{{ item }}"
-    state: "latest"
+    state: latest
   with_items:
-    - "apt-transport-https"
-    - "apt-transport-https"
-    - "ca-certificates"
-    - "software-properties-common"
+    - apt-transport-https
+    - apt-transport-https
+    - ca-certificates
+    - software-properties-common
 
-- name: "Add GPG keys"
-  become: "yes"
+- name: Add GPG keys
+  become: yes
   apt_key:
     keyserver: "{{ item.keyserver }}"
     id: "{{ item.id }}"
     state: "{{ item.state | default('present') }}"
   with_items:
-    - "{{ apt_keys }}"
+    - "{{ apt_keys | default('') }}"
 
-- name: "Add APT repositories"
-  become: "yes"
+- name: Add APT repositories
+  become: yes
   apt_repository:
     repo: "{{ item.repo }}"
     filename: "{{ item.filename }}"
     state: "{{ item.state | default('present') }}"
   with_items:
-    - "{{ apt_repositories }}"
+    - "{{ apt_repositories | default('') }}"
 
-- name: "Update APT package index"
-  become: "yes"
-  apt: "update_cache=yes"
+- name: Update APT package index
+  become: yes
+  apt: update_cache=yes
 
-- name: "Update all the existing packages"
-  become: "yes"
-  apt: "upgrade=dist"
+- name: Update all the existing packages
+  become: yes
+  apt: upgrade=dist
 
-- name: "Install/Update packages"
-  become: "yes"
+- name: Install/Update packages
+  become: yes
   apt:
     name: "{{ item.name | default(item) }}"
     state: "{{ item.state | default('latest') }}"
   with_items:
-    - "{{ deb_packages }}"
+    - "{{ deb_packages | default('') }}"
 
-- name: "Cleanup packages"
-  become: "yes"
-  #command: apt-get --purge -y autoremove
-  apt:
-    autoremove: "yes"
-    purge: "yes"
+- name: Cleanup packages
+  become: yes
+  command: "apt-get --purge -y autoremove"
+  #apt:
+  #  autoremove: yes
+  #  purge: yes
