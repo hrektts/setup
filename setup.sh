@@ -29,7 +29,7 @@ main() {
 
     local _branch=${@:-"master"}
 
-    if ${CI}; then
+    if ${CI-}; then
         HOMEBREW_CASK_OPTS="--appdir=/Applications" ansible-pull \
                           -U https://github.com/hrektts/setup.git \
                           -C $_branch \
