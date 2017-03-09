@@ -89,6 +89,10 @@ manage_prerequisites() {
             maybe_sudo apt-get update
             maybe_sudo apt-get -y install software-properties-common
             maybe_sudo apt-add-repository -y ppa:ansible/ansible
+            # Install linux-image-extra-* packages
+            maybe_sudo apt-get -y install \
+                       linux-image-extra-$(uname -r) \
+                       linux-image-extra-virtual
             ;;
         * )
             ;;

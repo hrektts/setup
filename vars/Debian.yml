@@ -10,12 +10,14 @@ apt_repositories:
     filename: docker.list
 
 deb_packages:
+  - apt-transport-https
   - build-essential
   - bzip2
+  - ca-certificates
   - cmake
   - curl
   - doxygen
-  - docker-engine
+  - docker-ce
   - emacs24
   - emacs24-el
   - fakeroot
